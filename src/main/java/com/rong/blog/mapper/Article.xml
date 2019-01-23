@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rong.blog.mapper.ArticleMapper">
+    <select id="findAll" resultType="Article">
+        select * from article
+    </select>
+    <insert id="save" parameterType="Article">
+        insert into article values(null, #{title}, #{content})
+    </insert>
+    <delete id="delete" parameterType="_int">
+        delete from article where id=#{id}
+    </delete>
+    <update id="update" parameterType="Article">
+        update article set title=#{title} where id=#{id}
+    </update>
+    <select id="get" parameterType="_int" resultType="Article">
+        select * from article where id=#{id}
+    </select>
+</mapper>

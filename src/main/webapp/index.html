@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>用AJAX以JSON方式提交数据</title>
+    <script type="text/javascript" src="./jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<form >
+    id：<input type="text" id="id" value="1" /><br/>
+    名称：<input type="text" id="name" value="category xxx"/><br/>
+    <input type="button" value="提交" id="sender">
+</form>
+<div id="messageDiv"></div>
+
+<script>
+    $('#sender').click(function(){
+        var id=document.getElementById('id').value;
+        var title=document.getElementById('name').value;
+        var jsonData = {"title":title,"id":id};
+        var page="/blog/updateArticle";
+
+        $.ajax({
+               type:"POST",
+               url: page,
+               data:jsonData,
+               contentType : "application/x-www-form-urlencoded",
+               success: function(result){
+               }
+            });
+           <!--alert("提交成功，请在springboot控制台查看服务端接收到的数据");-->
+
+    });
+    </script>
+</body>
+
+</html>
