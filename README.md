@@ -1,2 +1,3 @@
 # blog
-own blog
+java for blog
+
