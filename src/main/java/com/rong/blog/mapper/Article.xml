@@ -8,7 +8,7 @@
         select * from article
     </select>
     <insert id="save" parameterType="Article">
-        insert into article values(null, #{title}, #{content})
+        insert into article (id, title, type, state, content) values(null, #{title}, #{type}, #{state}, #{content})
     </insert>
     <delete id="delete" parameterType="_int">
         delete from article where id=#{id}
